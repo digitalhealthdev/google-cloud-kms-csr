@@ -29,10 +29,10 @@ func main() {
 	orgFlag := flag.String("org", "", "")
 	emailFlag := flag.String("email", "", "")
 	outFlag := flag.String("out", "out.csr", "")
-	orgUnitFlag := flag.String("org-unit","", "")
-	countryFlag := flag.String("country","US", "")
-	provinceFlag := flag.String("province","California", "")
-	localityFlag := flag.String("locality","San Francisco", "")
+	orgUnitFlag := flag.String("org-unit", "", "")
+	countryFlag := flag.String("country", "US", "")
+	provinceFlag := flag.String("province", "California", "")
+	localityFlag := flag.String("locality", "San Francisco", "")
 
 	flag.Parse()
 
@@ -78,10 +78,8 @@ func main() {
 
 	template.RawSubject = asn1Subj
 
-	// TODO Make this a flag or read from s.PublicKey?
-	//      https://cloud.google.com/kms/docs/algorithms
-	//      https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys#CryptoKeyVersionTemplate
-	template.SignatureAlgorithm = x509.ECDSAWithSHA256 // x509.SHA256WithRSAPSS
+	// This is Algorithm that our Google Cloud KMS key is configured to use
+	template.SignatureAlgorithm = x509.SHA256WithRSA
 
 	f, err := os.Create(*outFlag)
 	if err != nil {

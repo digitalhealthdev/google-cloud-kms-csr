@@ -9,6 +9,7 @@ I would've done it with `openssl`, but there is no Google Cloud KMS engine avail
 ## Usage
 
 ```
+go mod vendor
 go build -o csr
 ./csr -key <key-resource-id> -out my.csr --common-name MyOrg
 ```
