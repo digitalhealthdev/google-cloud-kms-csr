@@ -1,3 +1,7 @@
+# INACTIVE: This repository is no longer maintained
+
+---
+
 # CSR with Google Cloud KMS
 
 Quick utility tool that creates a CSR cert and signs it with a private key coming from Google Cloud KMS or HSM.
