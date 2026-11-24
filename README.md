@@ -4,6 +4,19 @@
 
 # CSR with Google Cloud KMS
 
+## Overview
+
+### What it is
+- A Go tool that creates a certificate signing request (CSR) signed with a private key held in Google Cloud KMS or an HSM.
+- The private key never leaves Google.
+
+### How to run or deploy
+- Run `go mod vendor`, then `go build -o csr`, then `./csr -key <key-resource-id> -out my.csr --common-name <name>`.
+- The key must be asymmetric. It is not maintained. Use this only as a reference.
+
+### Current status
+- Inactive and no longer used.
+
 Quick utility tool that creates a CSR cert and signs it with a private key coming from Google Cloud KMS or HSM.
 The private key never leaves Google, everyone is happy. The CSR can then be used to get cert from CA.
 
